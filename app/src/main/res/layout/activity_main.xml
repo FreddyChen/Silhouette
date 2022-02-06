@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击我"
+        app:sle_tb_type="selector"
+        app:sle_normalTextColor="#00ffee"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        app:sle_normalBackgroundColor="#ee9988"
+        app:sle_pressedTextColor="#0e9e87"
+        app:sle_cornersRadius="8dp"
+        app:sle_pressedBackgroundColor="#9e8e77" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:sle_ib_style="rounded"
+        app:sle_cornersTopLeftRadius="14dp"
+        app:sle_cornersBottomRightRadius="48dp"
+        app:sle_ib_type="mask"
+        app:sle_normalResId="@drawable/ic_launcher_background"
+        app:sle_pressedResId="@drawable/ic_launcher_foreground" />
+</LinearLayout>
