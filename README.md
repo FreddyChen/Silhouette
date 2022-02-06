@@ -1,0 +1,2 @@
+# Silhouette
+封装的Android常用控件，比如：SleTextButton、SleImageButton、SleConstraintLayout、SleFrameLayout、SleLinearLayout、SleRelativeLayout等。使控件具备Shape、Selector等功能，省去编写shape或selector文件的繁琐步骤。另外支持N种颜色渐变，弥补原生shape文件只支持三种颜色（startColor/centerColor/endColor）的不足等。
