@@ -91,13 +91,15 @@
     <!-- 其它 begin -->
     <!-- 当sle_type=mask时，按钮按下状态的遮罩颜色 -->
     <attr name="sle_maskBackgroundColor" format="color|reference" />
+    <!-- 用于解决手指移出控件区域判断为cancel的偏移量 -->
+    <attr name="sle_cancelOffset" format="dimension|reference" />
     <!-- 事件拦截类型 -->
     <attr name="sle_interceptType">
-        <!-- 线性渐变，默认值 -->
-        <enum name="intercept_support" value="0" />
-        <!-- 圆形渐变，起始颜色从nll_gradientCenterX、nll_gradientCenterY点开始 -->
+        <!-- return super -->
+        <enum name="intercept_super" value="0" />
+        <!-- return true -->
         <enum name="intercept_true" value="1" />
-        <!-- A sweeping line gradient -->
+        <!-- return false -->
         <enum name="intercept_false" value="2" />
     </attr>
     <!-- 其它 end -->
@@ -279,8 +281,7 @@
         <attr name="sle_gradientCenterY" />
         <attr name="sle_gradientRadius" />
         <attr name="sle_maskBackgroundColor" />
-        <!-- 适配手指移出Button区域时文字颜色恢复normal的偏移量 -->
-        <attr name="sle_cancelOffset" format="dimension|reference" />
+        <attr name="sle_cancelOffset" />
         <attr name="sle_normalTextColor" format="color|reference" />
         <attr name="sle_pressedTextColor" format="color|reference" />
         <attr name="sle_disabledTextColor" format="color|reference" />
