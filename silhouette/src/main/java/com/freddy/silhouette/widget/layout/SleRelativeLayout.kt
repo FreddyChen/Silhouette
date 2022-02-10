@@ -72,7 +72,7 @@ class SleRelativeLayout : RelativeLayout {
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SleRelativeLayout, defStyleAttr, 0)
             .apply {
-                type = getInt(R.styleable.SleRelativeLayout_sle_rl_type, TYPE_MASK)
+                type = getInt(R.styleable.SleRelativeLayout_sle_type, TYPE_MASK)
                 shape =
                     getInt(R.styleable.SleRelativeLayout_sle_shape, GradientDrawable.RECTANGLE)
                 innerRadius =

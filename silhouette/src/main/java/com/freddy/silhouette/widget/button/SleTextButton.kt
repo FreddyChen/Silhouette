@@ -74,7 +74,7 @@ class SleTextButton : AppCompatTextView, View.OnTouchListener {
         defStyleAttr
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SleTextButton, defStyleAttr, 0).apply {
-            type = getInt(R.styleable.SleTextButton_sle_tb_type, TYPE_MASK)
+            type = getInt(R.styleable.SleTextButton_sle_type, TYPE_MASK)
             shape = getInt(R.styleable.SleTextButton_sle_shape, GradientDrawable.RECTANGLE)
             innerRadius = getDimensionPixelSize(R.styleable.SleTextButton_sle_innerRadius, 0)
             innerRadiusRatio = getFloat(R.styleable.SleTextButton_sle_innerRadiusRatio, 0f)

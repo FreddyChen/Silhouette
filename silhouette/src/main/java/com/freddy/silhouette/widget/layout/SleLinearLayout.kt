@@ -72,7 +72,7 @@ class SleLinearLayout : LinearLayout {
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SleLinearLayout, defStyleAttr, 0)
             .apply {
-                type = getInt(R.styleable.SleLinearLayout_sle_ll_type, TYPE_MASK)
+                type = getInt(R.styleable.SleLinearLayout_sle_type, TYPE_MASK)
                 shape =
                     getInt(R.styleable.SleLinearLayout_sle_shape, GradientDrawable.RECTANGLE)
                 innerRadius =

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
+    <attr name="sle_type">
+        <enum name="mask" value="0" />
+        <enum name="selector" value="1" />
+        <enum name="none" value="-1" />
+    </attr>
     <!-- 形状相关 begin -->
     <attr name="sle_shape">
         <!-- 矩形 -->
@@ -99,12 +105,7 @@
     <!-- 其它 end -->
 
     <declare-styleable name="SleConstraintLayout">
-        <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
-        <attr name="sle_cl_type">
-            <enum name="mask" value="0" />
-            <enum name="selector" value="1" />
-            <enum name="none" value="-1" />
-        </attr>
+        <attr name="sle_type" />
         <attr name="sle_shape" />
         <attr name="sle_innerRadius" />
         <attr name="sle_innerRadiusRatio" />
@@ -141,12 +142,7 @@
     </declare-styleable>
 
     <declare-styleable name="SleFrameLayout">
-        <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
-        <attr name="sle_fl_type">
-            <enum name="mask" value="0" />
-            <enum name="selector" value="1" />
-            <enum name="none" value="-1" />
-        </attr>
+        <attr name="sle_type" />
         <attr name="sle_shape" />
         <attr name="sle_innerRadius" />
         <attr name="sle_innerRadiusRatio" />
@@ -183,12 +179,7 @@
     </declare-styleable>
 
     <declare-styleable name="SleLinearLayout">
-        <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
-        <attr name="sle_ll_type">
-            <enum name="mask" value="0" />
-            <enum name="selector" value="1" />
-            <enum name="none" value="-1" />
-        </attr>
+        <attr name="sle_type" />
         <attr name="sle_shape" />
         <attr name="sle_innerRadius" />
         <attr name="sle_innerRadiusRatio" />
@@ -225,12 +216,7 @@
     </declare-styleable>
 
     <declare-styleable name="SleRelativeLayout">
-        <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
-        <attr name="sle_rl_type">
-            <enum name="mask" value="0" />
-            <enum name="selector" value="1" />
-            <enum name="none" value="-1" />
-        </attr>
+        <attr name="sle_type" />
         <attr name="sle_shape" />
         <attr name="sle_innerRadius" />
         <attr name="sle_innerRadiusRatio" />
@@ -267,12 +253,7 @@
     </declare-styleable>
 
     <declare-styleable name="SleTextButton">
-        <!-- 类型，mask为自动加上按钮按下遮罩效果，selector为自定义 -->
-        <attr name="sle_tb_type">
-            <enum name="mask" value="0" />
-            <enum name="selector" value="1" />
-            <enum name="none" value="-1" />
-        </attr>
+        <attr name="sle_type" />
         <attr name="sle_shape" />
         <attr name="sle_innerRadius" />
         <attr name="sle_innerRadiusRatio" />

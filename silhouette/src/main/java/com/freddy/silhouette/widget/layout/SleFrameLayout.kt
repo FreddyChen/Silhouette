@@ -72,7 +72,7 @@ class SleFrameLayout  : FrameLayout {
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SleFrameLayout, defStyleAttr, 0)
             .apply {
-                type = getInt(R.styleable.SleFrameLayout_sle_fl_type, TYPE_MASK)
+                type = getInt(R.styleable.SleFrameLayout_sle_type, TYPE_MASK)
                 shape =
                     getInt(R.styleable.SleFrameLayout_sle_shape, GradientDrawable.RECTANGLE)
                 innerRadius =

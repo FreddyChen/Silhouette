@@ -72,7 +72,7 @@ class SleConstraintLayout  : ConstraintLayout {
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.SleConstraintLayout, defStyleAttr, 0)
             .apply {
-                type = getInt(R.styleable.SleConstraintLayout_sle_cl_type, TYPE_MASK)
+                type = getInt(R.styleable.SleConstraintLayout_sle_type, TYPE_MASK)
                 shape =
                     getInt(R.styleable.SleConstraintLayout_sle_shape, GradientDrawable.RECTANGLE)
                 innerRadius =

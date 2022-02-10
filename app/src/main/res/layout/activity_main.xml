@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="点击我"
-        app:sle_tb_type="selector"
+        app:sle_type="selector"
         app:sle_normalTextColor="#00ffee"
         android:paddingVertical="8dp"
         android:paddingHorizontal="48dp"
