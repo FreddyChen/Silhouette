@@ -11,7 +11,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<SleTextButton>(R.id.stb_1).setOnClickListener {  }
-        findViewById<SleImageButton>(R.id.sib_1).setOnClickListener {  }
+        findViewById<SleTextButton>(R.id.stb_1).setOnClickListener { }
+        findViewById<SleTextButton>(R.id.stb_2).setOnClickListener { }
+        findViewById<SleTextButton>(R.id.stb_3).setOnClickListener { }
+        findViewById<SleImageButton>(R.id.sib_1).setOnClickListener { }
+        findViewById<SleImageButton>(R.id.sib_2).setOnClickListener { }
+        findViewById<SleImageButton>(R.id.sib_3).setOnClickListener { }
     }
 }

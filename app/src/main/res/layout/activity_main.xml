@@ -1,35 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:layout_height="match_parent">
+    android:orientation="vertical">
 
     <com.freddy.silhouette.widget.button.SleTextButton
         android:id="@+id/stb_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="点击我"
-        app:sle_type="selector"
-        app:sle_normalTextColor="#00ffee"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="48dp"
         android:layout_marginTop="14dp"
-        app:sle_normalBackgroundColor="#ee9988"
-        app:sle_pressedTextColor="#0e9e87"
-        app:sle_cornersRadius="8dp"
-        app:sle_pressedBackgroundColor="#9e8e77" />
+        android:gravity="center"
+        android:text="SleTextButton1"
+        android:textSize="20sp"
+        app:sle_cornersRadius="28dp"
+        app:sle_normalBackgroundColor="#f88789"
+        app:sle_normalTextColor="@color/white"
+        app:sle_type="mask" />
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_2"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="SleTextButton2"
+        android:textSize="20sp"
+        app:sle_cornersBottomRightRadius="24dp"
+        app:sle_cornersTopLeftRadius="14dp"
+        app:sle_normalBackgroundColor="#338899"
+        app:sle_normalTextColor="@color/white"
+        app:sle_pressedBackgroundColor="#aeeacd"
+        app:sle_type="selector" />
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="SleTextButton2"
+        android:textSize="14sp"
+        app:sle_cornersBottomRightRadius="24dp"
+        app:sle_cornersTopLeftRadius="14dp"
+        app:sle_normalBackgroundColor="#cc688e"
+        app:sle_normalTextColor="@color/white"
+        app:sle_pressedBackgroundColor="#34eeac"
+        app:sle_shape="oval"
+        app:sle_type="selector" />
 
     <com.freddy.silhouette.widget.button.SleImageButton
         android:id="@+id/sib_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
         android:layout_marginTop="14dp"
-        app:sle_ib_style="rounded"
-        app:sle_cornersTopLeftRadius="14dp"
-        app:sle_cornersBottomRightRadius="48dp"
         app:sle_ib_type="mask"
-        app:sle_normalResId="@drawable/ic_launcher_background"
-        app:sle_pressedResId="@drawable/ic_launcher_foreground" />
+        app:sle_normalResId="@drawable/ic_launcher_background" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_2"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="14dp"
+        app:sle_ib_type="alpha"
+        app:sle_normalResId="@drawable/ic_launcher_background" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_3"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="14dp"
+        app:sle_ib_type="selector"
+        app:sle_normalResId="@mipmap/ic_launcher"
+        app:sle_pressedResId="@mipmap/ic_launcher_round" />
 </LinearLayout>
