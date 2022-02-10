@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.freddy.silhouette.widget.button.SleImageButton
 import com.freddy.silhouette.widget.button.SleTextButton
+import com.freddy.silhouette.widget.layout.SleConstraintLayout
+import com.freddy.silhouette.widget.layout.SleLinearLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,5 +19,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<SleImageButton>(R.id.sib_1).setOnClickListener { }
         findViewById<SleImageButton>(R.id.sib_2).setOnClickListener { }
         findViewById<SleImageButton>(R.id.sib_3).setOnClickListener { }
+        findViewById<SleConstraintLayout>(R.id.scl_1).setOnClickListener { }
+        findViewById<SleLinearLayout>(R.id.sll_1).setOnClickListener { }
     }
 }

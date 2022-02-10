@@ -157,11 +157,167 @@
 ```
 implementation "io.github.freddychen:silhouette:$lastest_version"
 ```
-Note：最新版本可在[maven central shine](https://search.maven.org/artifact/io.github.freddychen/shine-kotlin)中找到。  
+Note：最新版本可在[maven central silhouette](https://search.maven.org/artifact/io.github.freddychen/silhouette)中找到。  
 
 2. 使用  
-由于自定义属性太多，在此就不一一列举了。下面给出几种常见的场景示例，大家可以根据自定义属性表自行编写：
+由于自定义属性太多，在此就不一一列举了。下面给出几种常见的场景示例，大家可以根据自定义属性表自行编写：  
++ 常态
+![Silhouette Normal](https://raw.githubusercontent.com/FreddyChen/MarkdownPicBed/main/silhouette_normal.png)
++ 按下态
+![Silhouette Pressed](https://raw.githubusercontent.com/FreddyChen/MarkdownPicBed/main/silhouette_pressed.png)
 
+以上布局代码为：
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_1"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="SleTextButton1"
+        android:textSize="20sp"
+        app:sle_cornersRadius="28dp"
+        app:sle_normalBackgroundColor="#f88789"
+        app:sle_normalTextColor="@color/white"
+        app:sle_type="mask" />
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_2"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="SleTextButton2"
+        android:textSize="20sp"
+        app:sle_cornersBottomRightRadius="24dp"
+        app:sle_cornersTopLeftRadius="14dp"
+        app:sle_normalBackgroundColor="#338899"
+        app:sle_normalTextColor="@color/white"
+        app:sle_pressedBackgroundColor="#aeeacd"
+        app:sle_type="selector" />
+
+    <com.freddy.silhouette.widget.button.SleTextButton
+        android:id="@+id/stb_3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="SleTextButton2"
+        android:textSize="14sp"
+        app:sle_cornersBottomRightRadius="24dp"
+        app:sle_cornersTopLeftRadius="14dp"
+        app:sle_normalBackgroundColor="#cc688e"
+        app:sle_normalTextColor="@color/white"
+        app:sle_pressedBackgroundColor="#34eeac"
+        app:sle_shape="oval"
+        app:sle_type="selector" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_1"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="14dp"
+        app:sle_ib_type="mask"
+        app:sle_normalResId="@drawable/ic_launcher_background" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_2"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="14dp"
+        app:sle_ib_type="alpha"
+        app:sle_normalResId="@drawable/ic_launcher_background" />
+
+    <com.freddy.silhouette.widget.button.SleImageButton
+        android:id="@+id/sib_3"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="14dp"
+        app:sle_ib_type="selector"
+        app:sle_normalResId="@mipmap/ic_launcher"
+        app:sle_pressedResId="@drawable/ic_launcher_foreground" />
+
+    <com.freddy.silhouette.widget.layout.SleConstraintLayout
+        android:id="@+id/scl_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="8dp"
+        app:sle_cornersRadius="10dp"
+        app:sle_interceptType="intercept_super"
+        app:sle_normalBackgroundColor="@color/white">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UserName"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.freddy.silhouette.widget.layout.SleConstraintLayout>
+
+    <com.freddy.silhouette.widget.layout.SleLinearLayout
+        android:id="@+id/sll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        app:sle_type="selector"
+        android:paddingVertical="8dp"
+        app:sle_cornersTopRightRadius="24dp"
+        app:sle_cornersBottomRightRadius="18dp"
+        app:sle_interceptType="intercept_true"
+        app:sle_pressedBackgroundColor="#fe9e87"
+        app:sle_normalBackgroundColor="#aee949">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="UserName"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.freddy.silhouette.widget.layout.SleLinearLayout>
+</LinearLayout>
+```
+*Note：需要给组件设置**setOnClickListener**才能看到效果。*  
+至于更多的功能，就让大家去试试吧，篇幅有限，就不一一列举了。有任何疑问，欢迎通过**QQ群**或**微信公众号**联系我。
 
 ## 版本记录  
 | 版本号 | 修改时间 | 版本说明 |
@@ -169,4 +325,4 @@ Note：最新版本可在[maven central shine](https://search.maven.org/artifact
 | 0.0.1 | 2022.02.10 | 首次提交 |
 
 ## 写在最后  
-终于写完了，**Shape/Selector**在每个项目中基本都会用到，而且频率还不算低。**Silhouette**原理虽然简单，但确实能解决很多问题，这些都是平时开发中的积累，希望对大家能有所帮助。欢迎大家star和fork，让我们为Android开发共同贡献一份力量。另外如果有疑问欢迎加入我的QQ群：**1015178804**，同时也欢迎大家关注我的公众号：**FreddyChen**，让我们共同进步和成长。
+终于写完了，**Shape/Selector**在每个项目中基本都会用到，而且频率还不算低。**Silhouette**原理虽然简单，但确实能解决很多问题，这些都是平时开发中的积累，希望对大家能有所帮助。欢迎大家**star**和**fork**，让我们为**Android**开发共同贡献一份力量。另外如果有疑问欢迎加入我的QQ群：**1015178804**，同时也欢迎大家关注我的公众号：**FreddyChen**，让我们共同进步和成长。

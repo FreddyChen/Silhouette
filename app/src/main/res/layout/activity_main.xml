@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -77,5 +78,70 @@
         android:layout_marginTop="14dp"
         app:sle_ib_type="selector"
         app:sle_normalResId="@mipmap/ic_launcher"
-        app:sle_pressedResId="@mipmap/ic_launcher_round" />
+        app:sle_pressedResId="@drawable/ic_launcher_foreground" />
+
+    <com.freddy.silhouette.widget.layout.SleConstraintLayout
+        android:id="@+id/scl_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="8dp"
+        app:sle_cornersRadius="10dp"
+        app:sle_interceptType="intercept_super"
+        app:sle_normalBackgroundColor="@color/white">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UserName"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.freddy.silhouette.widget.layout.SleConstraintLayout>
+
+    <com.freddy.silhouette.widget.layout.SleLinearLayout
+        android:id="@+id/sll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        app:sle_type="selector"
+        android:paddingVertical="8dp"
+        app:sle_cornersTopRightRadius="24dp"
+        app:sle_cornersBottomRightRadius="18dp"
+        app:sle_interceptType="intercept_true"
+        app:sle_pressedBackgroundColor="#fe9e87"
+        app:sle_normalBackgroundColor="#aee949">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="UserName"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.freddy.silhouette.widget.layout.SleLinearLayout>
 </LinearLayout>
