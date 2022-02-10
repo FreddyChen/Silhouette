@@ -58,7 +58,6 @@ class SleConstraintLayout  : ConstraintLayout {
     private var gradientRadius: Float = 0f
 
     private var maskBackgroundColor: Int = DEFAULT_MASK_BACKGROUND_COLOR
-    private var cancelOffset: Int = DEFAULT_CANCEL_OFFSET
 
     @InterceptType
     private var interceptType: Int = INTERCEPT_TYPE_SUPER
@@ -162,10 +161,6 @@ class SleConstraintLayout  : ConstraintLayout {
                 maskBackgroundColor = getColor(
                     R.styleable.SleConstraintLayout_sle_maskBackgroundColor,
                     DEFAULT_MASK_BACKGROUND_COLOR
-                )
-                cancelOffset = getDimensionPixelSize(
-                    R.styleable.SleConstraintLayout_sle_cancelOffset,
-                    DEFAULT_CANCEL_OFFSET
                 )
                 interceptType =
                     getInt(

@@ -58,7 +58,6 @@ class SleRelativeLayout : RelativeLayout {
     private var gradientRadius: Float = 0f
 
     private var maskBackgroundColor: Int = DEFAULT_MASK_BACKGROUND_COLOR
-    private var cancelOffset: Int = DEFAULT_CANCEL_OFFSET
 
     @InterceptType
     private var interceptType: Int = INTERCEPT_TYPE_SUPER
@@ -162,10 +161,6 @@ class SleRelativeLayout : RelativeLayout {
                 maskBackgroundColor = getColor(
                     R.styleable.SleRelativeLayout_sle_maskBackgroundColor,
                     DEFAULT_MASK_BACKGROUND_COLOR
-                )
-                cancelOffset = getDimensionPixelSize(
-                    R.styleable.SleRelativeLayout_sle_cancelOffset,
-                    DEFAULT_CANCEL_OFFSET
                 )
                 interceptType =
                     getInt(
