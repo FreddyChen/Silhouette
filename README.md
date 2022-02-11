@@ -62,11 +62,149 @@
   由此可见，项目结构非常简单，所以**Silhouette**也是一个比较轻量级的库。
 
 * 封装思路及原理  
-  由于该库非常简单，实际上就是根据**Shape/Selector**进行自定义属性，从而利用**GradientDrawable**及**StateListDrawable**提供的**API**进行封装，不存在什么难度，在此就不展开讲了。感兴趣的同学可以到官方文档了解**GradientDrawable**及**StateListDrawable**的原理。
+  由于该库非常简单，实际上就是根据**Shape/Selector**进行自定义属性，从而利用**GradientDrawable**及**StateListDrawable**提供的**API**进行封装，不存在什么难度，在此就不展开讲了。
+
+  下面贴一下代码片段，基本上几个组件的实现原理都大同小异，都是利用**GradientDrawable**及**StateListDrawable**实现组件的**Shape**及**Selector**功能：
+```
+private fun init() {
+    val normalDrawable =
+        getDrawable(normalBackgroundColor, normalStrokeColor, normalGradientColors)
+    var pressedDrawable: GradientDrawable? = null
+    var disabledDrawable: GradientDrawable? = null
+    var selectedDrawable: GradientDrawable? = null
+    when (type) {
+        TYPE_MASK -> {
+            pressedDrawable = getDrawable(
+                normalBackgroundColor,
+                normalStrokeColor,
+                normalGradientColors
+            ).apply {
+                colorFilter =
+                    PorterDuffColorFilter(maskBackgroundColor, PorterDuff.Mode.SRC_ATOP)
+            }
+            disabledDrawable =
+                getDrawable(disabledBackgroundColor, disabledBackgroundColor)
+        }
+        TYPE_SELECTOR -> {
+            pressedDrawable =
+                getDrawable(pressedBackgroundColor, pressedStrokeColor, pressedGradientColors)
+            disabledDrawable = getDrawable(
+                disabledBackgroundColor,
+                disabledStrokeColor,
+                disabledGradientColors
+            )
+        }
+    }
+    selectedDrawable = getDrawable(
+        selectedBackgroundColor,
+        selectedStrokeColor,
+        selectedGradientColors
+    )
+    setTextColor(normalTextColor)
+    background = StateListDrawable().apply {
+        if (type != TYPE_NONE) {
+            addState(intArrayOf(android.R.attr.state_pressed), pressedDrawable)
+        }
+        addState(intArrayOf(-android.R.attr.state_enabled), disabledDrawable)
+        addState(intArrayOf(android.R.attr.state_selected), selectedDrawable)
+        addState(intArrayOf(), normalDrawable)
+    }
+  
+    setOnTouchListener(this)
+}
+  
+private fun getDrawable(
+    backgroundColor: Int,
+    strokeColor: Int,
+    gradientColors: IntArray? = null
+): GradientDrawable {
+    // 背景色相关
+    val drawable = GradientDrawable()
+    setupColor(drawable, backgroundColor)
+  
+    // 形状相关
+    (drawable.mutate() as GradientDrawable).shape = shape
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        drawable.innerRadius = innerRadius
+        if (innerRadiusRatio > 0f) {
+            drawable.innerRadiusRatio = innerRadiusRatio
+        }
+        drawable.thickness = thickness
+        if (thicknessRatio > 0f) {
+            drawable.thicknessRatio = thicknessRatio
+        }
+    }
+  
+    // 描边相关
+    if (strokeColor != 0) {
+        (drawable.mutate() as GradientDrawable).setStroke(
+            strokeWidth,
+            strokeColor,
+            dashWidth,
+            dashGap
+        )
+    }
+  
+    // 圆角相关
+    setupCornersRadius(
+        drawable,
+        cornersRadius,
+        cornersTopLeftRadius,
+        cornersTopRightRadius,
+        cornersBottomRightRadius,
+        cornersBottomLeftRadius
+    )
+  
+    // 渐变相关
+    (drawable.mutate() as GradientDrawable).gradientType = gradientType
+    if (gradientCenterX != 0.0f || gradientCenterY != 0.0f) {
+        (drawable.mutate() as GradientDrawable).setGradientCenter(
+            gradientCenterX,
+            gradientCenterY
+        )
+    }
+    gradientColors?.let { colors ->
+        (drawable.mutate() as GradientDrawable).colors = colors
+    }
+    var orientation: GradientDrawable.Orientation? = null
+    when (gradientOrientation) {
+        GRADIENT_ORIENTATION_TOP_BOTTOM -> {
+            orientation = GradientDrawable.Orientation.TOP_BOTTOM
+        }
+        GRADIENT_ORIENTATION_TR_BL -> {
+            orientation = GradientDrawable.Orientation.TR_BL
+        }
+        GRADIENT_ORIENTATION_RIGHT_LEFT -> {
+            orientation = GradientDrawable.Orientation.RIGHT_LEFT
+        }
+        GRADIENT_ORIENTATION_BR_TL -> {
+            orientation = GradientDrawable.Orientation.BR_TL
+        }
+        GRADIENT_ORIENTATION_BOTTOM_TOP -> {
+            orientation = GradientDrawable.Orientation.BOTTOM_TOP
+        }
+        GRADIENT_ORIENTATION_BL_TR -> {
+            orientation = GradientDrawable.Orientation.BL_TR
+        }
+        GRADIENT_ORIENTATION_LEFT_RIGHT -> {
+            orientation = GradientDrawable.Orientation.LEFT_RIGHT
+        }
+        GRADIENT_ORIENTATION_TL_BR -> {
+            drawable.orientation = GradientDrawable.Orientation.TL_BR
+        }
+    }
+    orientation?.apply {
+        (drawable.mutate() as GradientDrawable).orientation = this
+    }
+    return drawable
+}
+```
+感兴趣的同学可以到官方文档了解**GradientDrawable**及**StateListDrawable**的原理。
 
 ## 自定义属性列表
 自定义属性分为**通用属性**和**特有属性**。
 * **通用属性**
+
     - 类型  
       | 属性名称 | 类型 | 说明 | 备注 |
       | -- | :--: | :-- | -- |
@@ -131,8 +269,8 @@
 * **特有属性**
     - **SleConstraintLayout/SleRelativeLayout/SleFrameLayout/SleLinearLayout**
       | 属性名称 | 类型 | 说明 | 备注 |
-      | :-- | :--: | :-- | :--: |
-      | sle_interceptType | enum | 事件拦截类型<br>intercept_super：return super<br>intercept_true：return true<br>intercept_false：return false | / |
+      | :-- | :--: | :-- | :-- |
+      | sle_interceptType | enum | 事件拦截类型<br>intercept_super：return super<br>intercept_true：return true<br>intercept_false：return false | Layout组件设置此值，可实现是否拦截事件，如果设置为intercept_true，事件将不传递到子控件，在某些场景比较实用 |
 
     - **SleTextButton**
       | 属性名称 | 类型 | 说明 | 备注 |
