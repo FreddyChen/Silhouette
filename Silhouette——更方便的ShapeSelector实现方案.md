@@ -455,7 +455,7 @@ Note：最新版本可在[maven central silhouette](https://search.maven.org/art
 </LinearLayout>
 ```
 *Note：需要给组件设置**setOnClickListener**才能看到效果。*  
-至于更多的功能，就让大家去试试吧，篇幅有限，就不一一列举了。有任何疑问，欢迎通过**QQ群**或**微信公众号**联系我。
+至于更多的功能，就让大家去试试吧，篇幅有限，就不一一列举了。有任何疑问，欢迎通过**QQ群**或**微信公众号**联系我。  
 
 ## 版本记录  
 | 版本号 | 修改时间 | 版本说明 |
@@ -463,4 +463,6 @@ Note：最新版本可在[maven central silhouette](https://search.maven.org/art
 | 0.0.1 | 2022.02.10 | 首次提交 |
 
 ## 写在最后  
-终于写完了，**Shape/Selector**在每个项目中基本都会用到，而且频率还不算低。**Silhouette**原理虽然简单，但确实能解决很多问题，这些都是平时开发中的积累，希望对大家能有所帮助。欢迎大家**star**和**fork**，让我们为**Android**开发共同贡献一份力量。另外如果有疑问欢迎加入我的QQ群：**1015178804**，同时也欢迎大家关注我的公众号：**FreddyChen**，让我们共同进步和成长。
+终于写完了，**Shape/Selector**在每个项目中基本都会用到，而且频率还不算低。**Silhouette**原理虽然简单，但确实能解决很多问题，这些都是平时开发中的积累，希望对大家能有所帮助。欢迎大家**star**和**fork**，让我们为**Android**开发共同贡献一份力量。另外如果有疑问欢迎加入我的QQ群：**1015178804**，同时也欢迎大家关注我的公众号：**FreddyChen**，让我们共同进步和成长。  
+
+[GitHub地址](https://github.com/FreddyChen/Silhouette)
