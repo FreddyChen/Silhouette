@@ -21,5 +21,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<SleImageButton>(R.id.sib_3).setOnClickListener { }
         findViewById<SleConstraintLayout>(R.id.scl_1).setOnClickListener { }
         findViewById<SleLinearLayout>(R.id.sll_1).setOnClickListener { }
+
+        findViewById<SleTextButton>(R.id.stb_1).postDelayed(Runnable {
+            findViewById<SleTextButton>(R.id.stb_1).isSelected = true
+        }, 3000)
     }
 }

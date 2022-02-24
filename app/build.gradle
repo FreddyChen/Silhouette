@@ -41,5 +41,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation project(':silhouette')
-//    implementation 'io.github.freddychen:silhouette:0.0.1'
+//    implementation 'io.github.freddychen:silhouette:0.0.2'
 }

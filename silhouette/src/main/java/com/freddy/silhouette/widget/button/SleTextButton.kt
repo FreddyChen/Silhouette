@@ -104,11 +104,11 @@ class SleTextButton : AppCompatTextView, View.OnTouchListener {
             normalTextColor =
                 getColor(R.styleable.SleTextButton_sle_normalTextColor, currentTextColor)
             pressedTextColor =
-                getColor(R.styleable.SleTextButton_sle_pressedTextColor, normalTextColor)
+                getColor(R.styleable.SleTextButton_sle_pressedTextColor, currentTextColor)
             disabledTextColor =
-                getColor(R.styleable.SleTextButton_sle_disabledTextColor, normalTextColor)
+                getColor(R.styleable.SleTextButton_sle_disabledTextColor, currentTextColor)
             selectedTextColor =
-                getColor(R.styleable.SleTextButton_sle_selectedTextColor,normalTextColor)
+                getColor(R.styleable.SleTextButton_sle_selectedTextColor,currentTextColor)
             cornersRadius = getDimension(R.styleable.SleTextButton_sle_cornersRadius, 0f)
             cornersTopLeftRadius =
                 getDimension(R.styleable.SleTextButton_sle_cornersTopLeftRadius, 0f)
@@ -435,9 +435,18 @@ class SleTextButton : AppCompatTextView, View.OnTouchListener {
     }
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
-        if (!isEnabled || !isClickable || normalTextColor == 0 || pressedTextColor == 0) {
+        if(type != TYPE_SELECTOR) {
             return false
         }
+
+        if(!isEnabled || !isClickable) {
+            return false
+        }
+
+        if(normalTextColor == 0 || pressedTextColor == 0 || (normalTextColor == pressedTextColor)) {
+            return false
+        }
+
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 setTextColor(pressedTextColor)

@@ -19,7 +19,9 @@
         app:sle_cornersRadius="28dp"
         app:sle_normalBackgroundColor="#f88789"
         app:sle_normalTextColor="@color/white"
-        app:sle_type="mask" />
+        app:sle_selectedBackgroundColor="#00ffff"
+        app:sle_selectedTextColor="#000000"
+        app:sle_type="none" />
 
     <com.freddy.silhouette.widget.button.SleTextButton
         android:id="@+id/stb_2"

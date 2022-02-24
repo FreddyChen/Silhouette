@@ -43,6 +43,6 @@ dependencies {
 ext {
     PUBLISH_GROUP_ID = "io.github.freddychen"   // 项目包名
     PUBLISH_ARTIFACT_ID = 'silhouette'	        // 项目名
-    PUBLISH_VERSION = '0.0.2'					// 版本号
+    PUBLISH_VERSION = '0.0.3'					// 版本号
 }
 apply from: './scripts/publish-mavencentral.gradle'
